@@ -1,0 +1,151 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Josefin', sans-serif;
+    box-sizing: border-box;
+}
+.container  {
+    width: 100%;
+    height: 100vh;
+    background-color: #fff;
+}
+h1{
+    font-size: 70px;
+    line-height: 36px;
+    padding: 50px 0;
+    text-align: center;
+    color: rgb(196, 8, 8);
+    text-shadow: 1px 1px 2px whitesmoke;
+}
+.gallery {
+    width: 800px;
+    margin: auto;
+    padding: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 30px;
+    box-shadow: 0 0 3px 3px rgb(196, 8, 8) ;
+}
+.gallery li{
+    width: 150px;
+    height: 150px;
+    list-style: none;
+    background-color: #181818;
+    overflow: hidden;
+    position: relative;
+    border-radius: 50%;
+    margin: 0 5px;
+    border: 1px solid whitesmoke;
+}
+.gallery li a{
+    text-decoration: none;
+}
+/* .gallery li img{
+    width: 120px;
+    height: 120px; */
+    /* border-radius: 50%; */
+    /* box-shadow: 0 0 3px 3px rgba(255, 255, 255, .3); */
+/* } */
+.gallery li span{
+    display: block;
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 150px;
+    background-color: rgba(200, 200, 200, .2);
+    color: white;
+    font-size: 20px;
+    letter-spacing: 3px;
+    font-weight: 600;
+    position: absolute;
+    top: 0;
+    text-shadow: 1px 1px 2px red;
+    opacity: 0;
+}
+.gallery li a:hover span{
+    opacity: 1;
+    transition: .3s;
+}
+/* overlay */
+.overlay{
+    width: 0;
+    height: 0;
+    position: fixed;
+    top: 0;   
+    left: 0;
+    background-color: rgba(0, 0, 0, .0);
+    transition: .5s;
+    z-index: 9999;
+    overflow: hidden;
+    padding: 100px 0;
+}
+.overlay:target{
+    height: auto;
+    width: auto;
+    text-align: center;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, .8);
+}
+.overlay img{
+    max-height: 100%;
+    box-shadow: 2px 2px 5px rgba(000, 000, 000, .5);
+    border-radius: 30px;
+}
+.overlay:target img{
+    animation: zoomAndFade .5s;
+}
+
+/* tombol close */
+.overlay .close{
+    position: absolute;
+    top:9%;
+    left: 50%;
+    margin-left: -20px;
+    color: white;
+    background-color: #000;
+    border: 1px solid transparent;
+    padding: 5px 15px;
+    border-radius: 20px;
+    opacity: 0;
+
+}
+.overlay .close:hover{
+    border: 1px solid white;
+    color: white;
+    transition: .3s ease-in-out;
+
+}
+.overlay:target .close{
+    animation: slideDownFade .5s .2s forwards;
+}
+
+
+
+
+
+
+/* animation */
+@keyframes zoomAndFade{
+    0%{
+        transform: scale(0);
+        opacity: 0;
+    }
+    100%{
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+@keyframes slideDownFade{
+    0%{
+        opacity: 0;
+        margin-top: -20px;
+    }
+    100%{
+        opacity: 1;
+        margin-top: 0;
+    }
+}
